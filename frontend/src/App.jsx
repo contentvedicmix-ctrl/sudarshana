@@ -5,13 +5,11 @@ import Signup from "./pages/Signup";
 import Interview from "./pages/Interview";
 import Dashboard from "./pages/Dashboard";
 import Pricing from "./pages/Pricing";
-import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />

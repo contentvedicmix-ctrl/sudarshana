@@ -1,4 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --color-page: #08090a;
+  --color-panel: #0f1011;
+  --color-surface: #191a1b;
+  --color-elevated: #28282c;
+  --color-primary: #f7f8f8;
+  --color-secondary: #d0d6e0;
+  --color-muted: #8a8f98;
+  --color-subtle: #62666d;
+  --color-brand: #5e6ad2;
+  --color-brand-light: #7170ff;
+  --color-brand-hover: #828fff;
+  --color-border: rgba(255,255,255,0.08);
+  --color-border-subtle: rgba(255,255,255,0.05);
+  --color-green: #27a644;
+  --color-emerald: #10b981;
+  --color-red: #e5484d;
+  --color-yellow: #dfab01;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
 
 * {
   margin: 0;
@@ -7,25 +30,78 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: #111827;
-  color: white;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: "cv01", "ss03";
+  background-color: #08090a;
+  color: #d0d6e0;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-::-webkit-scrollbar-thumb {
-  background: #4b5563;
-  border-radius: 3px;
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+::-webkit-scrollbar-thumb { background: #34343a; border-radius: 3px; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+/* Linear-style card */
+.card-surface {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
 }
 
-/* Mobile tap target improvements */
-button, a {
-  -webkit-tap-highlight-color: transparent;
+/* Linear-style ghost button */
+.btn-ghost {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgb(36, 40, 44);
+  border-radius: 6px;
+  color: #e2e4e7;
+  transition: all 0.15s ease;
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* Linear-style primary button */
+.btn-primary {
+  background: #5e6ad2;
+  border-radius: 6px;
+  color: #ffffff;
+  transition: all 0.15s ease;
+}
+.btn-primary:hover {
+  background: #828fff;
+}
+
+/* Linear-style input */
+.input-linear {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  color: #d0d6e0;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+.input-linear:focus {
+  border-color: #5e6ad2;
+}
+
+/* Recording button pulse */
+@keyframes pulse-recording {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 72, 77, 0.5); }
+  50% { box-shadow: 0 0 0 16px rgba(229, 72, 77, 0); }
+}
+.recording-pulse {
+  animation: pulse-recording 1.5s infinite;
+}
+
+/* Fade in animation */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fade-in 0.4s ease-out forwards;
 }

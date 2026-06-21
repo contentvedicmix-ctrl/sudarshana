@@ -26,44 +26,113 @@ export default function Signup() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-      <div className="bg-gray-800 rounded-xl p-8 w-full max-w-md border border-gray-700">
-        <h1 className="text-2xl font-bold text-white mb-6 text-center">Create Account</h1>
-        {error && <p className="bg-red-900/50 text-red-300 p-3 rounded-lg mb-4 text-sm">{error}</p>}
+    <div className="min-h-screen flex items-center justify-center px-4" style={{ backgroundColor: "#08090a" }}>
+      <div className="w-full max-w-sm fade-in">
+        <Link to="/" className="flex items-center gap-1.5 text-[13px] mb-8" style={{ color: "#62666d", fontWeight: 510 }}>
+          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+          </svg>
+          Back
+        </Link>
+
+        <h1 className="text-[24px] mb-1" style={{
+          color: "#f7f8f8",
+          fontWeight: 400,
+          letterSpacing: "-0.288px",
+          fontFeatureSettings: '"cv01", "ss03"',
+        }}>
+          Create Account
+        </h1>
+        <p className="text-[14px] mb-6" style={{ color: "#8a8f98" }}>
+          Start with 3 free mock interviews
+        </p>
+
+        {error && (
+          <div className="p-3 rounded-md mb-5 text-[13px]" style={{
+            color: "#e5484d",
+            background: "rgba(229,72,77,0.1)",
+            border: "1px solid rgba(229,72,77,0.2)",
+          }}>
+            {error}
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="text-gray-300 text-sm block mb-1">Name</label>
+            <label className="text-[13px] block mb-1.5" style={{ color: "#d0d6e0", fontWeight: 400 }}>
+              Name
+            </label>
             <input
               type="text" required
-              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
-              value={name} onChange={(e) => setName(e.target.value)}
+              className="w-full text-[14px] rounded-md"
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: "#d0d6e0",
+                padding: "12px 14px",
+                outline: "none",
+              }}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onFocus={(e) => e.target.style.borderColor = "#5e6ad2"}
+              onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"}
             />
           </div>
           <div>
-            <label className="text-gray-300 text-sm block mb-1">Email</label>
+            <label className="text-[13px] block mb-1.5" style={{ color: "#d0d6e0", fontWeight: 400 }}>
+              Email
+            </label>
             <input
               type="email" required
-              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
-              value={email} onChange={(e) => setEmail(e.target.value)}
+              className="w-full text-[14px] rounded-md"
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: "#d0d6e0",
+                padding: "12px 14px",
+                outline: "none",
+              }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onFocus={(e) => e.target.style.borderColor = "#5e6ad2"}
+              onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"}
             />
           </div>
           <div>
-            <label className="text-gray-300 text-sm block mb-1">Password</label>
+            <label className="text-[13px] block mb-1.5" style={{ color: "#d0d6e0", fontWeight: 400 }}>
+              Password
+            </label>
             <input
               type="password" required minLength={6}
-              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-indigo-500"
-              value={password} onChange={(e) => setPassword(e.target.value)}
+              className="w-full text-[14px] rounded-md"
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: "#d0d6e0",
+                padding: "12px 14px",
+                outline: "none",
+              }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onFocus={(e) => e.target.style.borderColor = "#5e6ad2"}
+              onBlur={(e) => e.target.style.borderColor = "rgba(255,255,255,0.08)"}
             />
           </div>
           <button
             type="submit" disabled={loading}
-            className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 rounded-lg transition disabled:opacity-50"
+            className="w-full py-2.5 text-[14px] rounded-md disabled:opacity-50"
+            style={{
+              background: "#5e6ad2",
+              color: "#ffffff",
+              fontWeight: 510,
+            }}
           >
             {loading ? "Creating account..." : "Create Free Account"}
           </button>
         </form>
-        <p className="text-gray-400 text-sm text-center mt-4">
-          Already have an account? <Link to="/login" className="text-indigo-400 hover:underline">Sign in</Link>
+        <p className="text-[13px] text-center mt-5" style={{ color: "#62666d" }}>
+          Already have an account?{" "}
+          <Link to="/login" style={{ color: "#7170ff", fontWeight: 510 }}>Sign in</Link>
         </p>
       </div>
     </div>

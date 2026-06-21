@@ -20,26 +20,58 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="bg-gray-900/80 backdrop-blur border-b border-gray-800 px-4 py-3 sticky top-0 z-50">
-      <div className="max-w-5xl mx-auto flex items-center justify-between">
-        <Link to="/" className="text-white font-bold text-lg flex items-center gap-2">
-          <span className="text-2xl">🎤</span> InterviewCoach
+    <nav style={{
+      background: "rgba(8,9,10,0.9)",
+      backdropFilter: "blur(12px)",
+      borderBottom: "1px solid rgba(255,255,255,0.05)",
+      position: "sticky",
+      top: 0,
+      zIndex: 50,
+    }}>
+      <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+        <Link to="/" className="text-[15px]" style={{
+          color: "#f7f8f8",
+          fontWeight: 510,
+          fontFeatureSettings: '"cv01", "ss03"',
+        }}>
+          InterviewCoach
         </Link>
 
-        <div className="flex items-center gap-4 text-sm">
-          <Link to="/pricing" className="text-gray-300 hover:text-white transition">Pricing</Link>
+        <div className="flex items-center gap-5">
+          <Link to="/pricing" className="text-[13px]" style={{ color: "#d0d6e0", fontWeight: 510 }}>
+            Pricing
+          </Link>
           {user ? (
             <>
-              <Link to="/dashboard" className="text-gray-300 hover:text-white transition">Dashboard</Link>
-              <Link to="/interview" className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white transition font-medium">
-                Practice Now
+              <Link to="/dashboard" className="text-[13px]" style={{ color: "#d0d6e0", fontWeight: 510 }}>
+                Dashboard
               </Link>
-              <button onClick={handleLogout} className="text-gray-400 hover:text-white transition">Logout</button>
+              <button
+                onClick={() => navigate("/interview")}
+                className="text-[13px] px-4 py-1.5 rounded-md"
+                style={{ background: "#5e6ad2", color: "#ffffff", fontWeight: 510 }}
+              >
+                Practice Now
+              </button>
+              <button onClick={handleLogout} className="text-[13px]" style={{ color: "#62666d", fontWeight: 510 }}>
+                Logout
+              </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="text-gray-300 hover:text-white transition">Sign In</Link>
-              <Link to="/signup" className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white transition font-medium">
+              <Link to="/login" className="text-[13px] px-4 py-1.5 rounded-md" style={{
+                color: "#e2e4e7",
+                fontWeight: 510,
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgb(36, 40, 44)",
+              }}>
+                Sign In
+              </Link>
+              <Link
+                to="/signup"
+                className="text-[13px] px-4 py-1.5 rounded-md"
+                style={{ background: "#5e6ad2", color: "#ffffff", fontWeight: 510 }}
+              >
                 Sign Up Free
               </Link>
             </>
